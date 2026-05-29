@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ĐẠO TRADER AI LAB - Ứng dụng AI & Trading Mindset để Tự Do Tài Chính</title>
+    <meta name="description" content="Ứng dụng AI và Trading Mindset để Tự Do Tài Chính & Làm Chủ Cuộc Chơi">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --navy: #0A1628;
+            --gold: #D4AF37;
+            --cyan: #00D4FF;
+            --white: #FFFFFF;
+            --gray: #94A3B8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a2540 100%);
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--gray);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--gold) 0%, #f4c542 100%);
+            color: var(--navy);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        /* Section Headers */
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* Products Section */
+        .products {
+            background: #0d1f38;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: var(--navy);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .product-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .product-features li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+        }
+        
+        .product-features li:before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: 700;
+            margin-right: 0.5rem;
+        }
+        
+        /* How It Works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            counter-reset: step-counter;
+        }
+        
+        .step {
+            text-align: center;
+            position: relative;
+            counter-increment: step-counter;
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--cyan) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin: 0 auto 1.5rem;
+        }
+        
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .step p {
+            color: var(--gray);
+        }
+        
+        /* Why Us */
+        .why-us {
+            background: #0d1f38;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--cyan);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .feature p {
+            color: var(--gray);
+        }
+        
+        /* Contact */
+        .contact {
+            text-align: center;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--white);
+            transition: transform 0.3s;
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--cyan) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-label {
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        footer {
+            background: #060e1a;
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+        }
+        
+        footer strong {
+            color: var(--gold);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .products-grid,
+            .steps-grid,
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="assets/logo.jpg" alt="ĐẠO TRADER AI LAB" class="logo">
+        <h1>ĐẠO TRADER AI LAB</h1>
+        <p>Ứng dụng AI & Trading Mindset để Tự Do Tài Chính & Làm Chủ Cuộc Chơi</p>
+        <a href="#products" class="cta-button">Bắt Đầu Ngay</a>
+    </section>
+    
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Sản Phẩm Của Chúng Tôi</h2>
+            <p class="section-subtitle">Giải pháp trading thông minh cho nhà đầu tư hiện đại</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <i class="fas fa-chart-line product-icon"></i>
+                    <h3>Backtest Chiến Lược</h3>
+                    <div class="product-price">50.000đ/lần</div>
+                    <ul class="product-features">
+                        <li>Kiểm thử chiến lược trên dữ liệu thực</li>
+                        <li>Báo cáo chi tiết Excel</li>
+                        <li>Phân tích hiệu suất chuyên sâu</li>
+                        <li>Tối ưu hóa tham số</li>
+                    </ul>
+                </div>
+                
+                <div class="product-card">
+                    <i class="fas fa-robot product-icon"></i>
+                    <h3>Demo Bot Tự Động</h3>
+                    <div class="product-price">200.000đ/tháng</div>
+                    <ul class="product-features">
+                        <li>Trading tự động 24/7</li>
+                        <li>Quản lý rủi ro thông minh</li>
+                        <li>Thông báo Telegram real-time</li>
+                        <li>Hỗ trợ kỹ thuật chuyên nghiệp</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Cách Thức Hoạt Động</h2>
+            <p class="section-subtitle">3 bước đơn giản để bắt đầu hành trình trading thông minh</p>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Chọn Chiến Lược</h3>
+                    <p>Lựa chọn chiến lược trading phù hợp với phong cách và mục tiêu của bạn</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Backtest Kiểm Chứng</h3>
+                    <p>Chạy backtest trên dữ liệu lịch sử để đánh giá hiệu suất và tối ưu hóa</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Triển Khai Bot</h3>
+                    <p>Đưa bot vào hoạt động tự động, theo dõi và điều chỉnh khi cần thiết</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Us -->
+    <section class="why-us">
+        <div class="container">
+            <h2 class="section-title">Tại Sao Chọn Chúng Tôi?</h2>
+            <p class="section-subtitle">Đội ngũ chuyên gia với công nghệ AI tiên tiến</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-brain feature-icon"></i>
+                    <h3>AI-Powered</h3>
+                    <p>Sử dụng trí tuệ nhân tạo để phân tích thị trường và ra quyết định chính xác</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-eye feature-icon"></i>
+                    <h3>Minh Bạch</h3>
+                    <p>Mọi giao dịch và kết quả đều được báo cáo chi tiết, không giấu giếm</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-award feature-icon"></i>
+                    <h3>Chuyên Nghiệp</h3>
+                    <p>Đội ngũ giàu kinh nghiệm, hỗ trợ tận tâm, công nghệ tiên tiến</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact -->
+    <section class="contact">
+        <div class="container">
+            <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
+            <p class="section-subtitle">Sẵn sàng bắt đầu hành trình trading thông minh?</p>
+            
+            <div class="contact-links">
+                <a href="#" class="contact-link">
+                    <div class="contact-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <span class="contact-label">Facebook</span>
+                </a>
+                
+                <a href="#" class="contact-link">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </div>
+                    <span class="contact-label">Telegram</span>
+                </a>
+                
+                <a href="#" class="contact-link">
+                    <div class="contact-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <span class="contact-label">Zalo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p><strong>ĐẠO TRADER AI LAB</strong> - AI • Trading • Automation • Growth</p>
+        <p>&copy; 2026 ĐẠO TRADER AI LAB. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
