@@ -133,8 +133,30 @@
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .custom-strategy-banner {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 212, 255, 0.1) 100%);
+            border: 2px solid var(--gold);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .custom-strategy-banner h3 {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .custom-strategy-banner p {
+            color: var(--white);
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
         .product-card {
@@ -365,7 +387,7 @@
                 <div class="product-card">
                     <i class="fas fa-robot product-icon"></i>
                     <h3>Demo Bot Tự Động</h3>
-                    <div class="product-price">300<span>k/tháng</span></div>
+                    <div class="product-price">300.000<span>đ/tháng</span></div>
                     <ul class="product-features">
                         <li>Trading tự động 24/7</li>
                         <li>Quản lý rủi ro thông minh</li>
@@ -373,6 +395,11 @@
                         <li>Hỗ trợ kỹ thuật chuyên nghiệp</li>
                     </ul>
                 </div>
+            </div>
+            
+            <div class="custom-strategy-banner">
+                <h3><i class="fas fa-lightbulb"></i> Bạn Đã Có Hệ Thống Trading Riêng?</h3>
+                <p>Chúng tôi có thể backtest chiến lược của bạn trên dữ liệu thực hoặc tạo bot signal tự động theo hệ thống giao dịch cá nhân của bạn. Liên hệ ngay để được tư vấn!</p>
             </div>
         </div>
     </section>
